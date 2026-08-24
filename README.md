@@ -37,115 +37,156 @@ bone-xray-abnormality-detection/
 ├── requirements.txt
 ├── .gitignore
 └── README.md
-Methods
+```
+
+## Methods
 
 The project includes the following components:
 
-Balanced model training
-Fine-tuning
-Recall-focused training
-X-ray image prediction
-Grad-CAM visualization
-Multiple-image Grad-CAM analysis
-Model comparison
-Confusion matrix analysis
-Training curve analysis
-Classification report generation
-Model Training
+- Balanced model training
+- Fine-tuning
+- Recall-focused training
+- X-ray image prediction
+- Grad-CAM visualization
+- Multiple-image Grad-CAM analysis
+- Model comparison
+- Confusion matrix analysis
+- Training curve analysis
+- Classification report generation
+
+## Model Training
 
 Three main training strategies are included.
 
-1. Final Balanced Training
+### 1. Final Balanced Training
+
+```bash
 python src/train_final_balanced.py
+```
 
 A balanced training strategy designed to improve the overall classification performance of the model.
 
-2. Fine-Tuning
+### 2. Fine-Tuning
+
+```bash
 python src/train_finetune.py
+```
 
 A fine-tuning approach used to further improve model performance.
 
-3. Recall-Focused Training
+### 3. Recall-Focused Training
+
+```bash
 python src/train_recall_focus.py
+```
 
 A training strategy focused on improving recall for abnormal X-ray detection.
 
-Prediction
+## Prediction
 
-The predict.py script is used to perform predictions on bone X-ray images.
+The `predict.py` script is used to perform predictions on bone X-ray images.
 
+```bash
 python src/predict.py
+```
 
 The prediction pipeline allows the trained model to classify input X-ray images into the defined categories.
 
-Model Explainability
+## Model Explainability
 
 Grad-CAM is used to visualize the image regions that contribute to model predictions.
 
 The repository includes:
 
-gradcam_compare.py — comparison of Grad-CAM results
-gradcam_multiple.py — Grad-CAM analysis for multiple images
+- `gradcam_compare.py` — comparison of Grad-CAM results
+- `gradcam_multiple.py` — Grad-CAM analysis for multiple images
 
 These visualizations provide an interpretable representation of the model's decision-making process and help investigate which regions of an X-ray image influence the prediction.
 
-Results
+## Results
 
 The repository contains selected evaluation results generated during model development.
 
-Confusion Matrices
-confusion_matrix_finetune.png
-confusion_matrix_recall_focus.png
-Training Curves
-training_curves_finetune.png
-training_curves_recall_focus.png
-Classification Reports
-classification_report_finetune.txt
-classification_report_recall_focus.txt
+### Confusion Matrices
+
+- `confusion_matrix_finetune.png`
+- `confusion_matrix_recall_focus.png`
+
+### Training Curves
+
+- `training_curves_finetune.png`
+- `training_curves_recall_focus.png`
+
+### Classification Reports
+
+- `classification_report_finetune.txt`
+- `classification_report_recall_focus.txt`
 
 These files provide visual and numerical information about model performance, including classification behavior and training progress.
 
-Technologies
-Python
-PyTorch
-Pandas
-NumPy
-Pillow
-Matplotlib
-OpenCV
-Installation
+### Model Performance Comparison
+
+The evaluation results show a clear trade-off between overall classification performance and abnormal-class recall.
+
+| Model | Accuracy | Abnormal Precision | Abnormal Recall | Abnormal F1-Score |
+|---|---:|---:|---:|---:|
+| Fine-Tuning | 0.74 | 0.79 | 0.66 | 0.72 |
+| Recall-Focused | 0.62 | 0.57 | 0.92 | 0.71 |
+
+The fine-tuned model achieved higher overall accuracy (74%), while the recall-focused model achieved substantially higher recall for abnormal X-ray images (92%).
+
+This demonstrates the effect of optimizing the model toward abnormality detection: the recall-focused strategy reduces overall accuracy but significantly improves the detection of abnormal cases.
+
+## Technologies
+
+- Python
+- PyTorch
+- Pandas
+- NumPy
+- Pillow
+- Matplotlib
+- OpenCV
+
+## Installation
 
 Clone the repository:
 
+```bash
 git clone https://github.com/hbaris23/bone-xray-abnormality-detection.git
 cd bone-xray-abnormality-detection
+```
 
 Install the required dependencies:
 
+```bash
 pip install -r requirements.txt
-Dataset
+```
+
+## Dataset
 
 The project uses bone X-ray image data for binary abnormality classification.
 
 The dataset is not included in this repository due to size and data management considerations.
 
-Repository Notes
+## Repository Notes
 
-Large datasets, trained model weights, virtual environment files, and test images are excluded from version control using .gitignore.
+Large datasets, trained model weights, virtual environment files, and test images are excluded from version control using `.gitignore`.
 
 The repository contains the source code, selected evaluation results, visualizations, and configuration files required to understand the project workflow.
 
-Future Improvements
+## Future Improvements
 
 Possible future improvements include:
 
-Evaluation on larger and more diverse datasets
-Additional data augmentation strategies
-Comparison with different deep learning architectures
-Improved abnormality localization
-Additional explainability methods
-More comprehensive model evaluation
-Author
+- Evaluation on larger and more diverse datasets
+- Additional data augmentation strategies
+- Comparison with different deep learning architectures
+- Improved abnormality localization
+- Additional explainability methods
+- More comprehensive model evaluation
 
-Hasan Barış
+## Author
+
+**Hasan Barış**
+
 Biomedical Engineering Student
