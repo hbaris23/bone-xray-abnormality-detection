@@ -107,6 +107,36 @@ These visualizations provide an interpretable representation of the model's deci
 
 The repository contains selected evaluation results generated during model development.
 
+### Fine-Tuning Results
+
+The fine-tuned model achieved the following results on a balanced evaluation set of 600 X-ray images:
+
+| Class | Precision | Recall | F1-Score | Support |
+|---|---:|---:|---:|---:|
+| Normal | 0.71 | 0.82 | 0.76 | 300 |
+| Abnormal | 0.79 | 0.66 | 0.72 | 300 |
+
+**Accuracy: 0.74**
+
+**Macro F1-Score: 0.74**
+
+### Recall-Focused Results
+
+The recall-focused training strategy was designed to prioritize the detection of abnormal X-ray images.
+
+Evaluation results on 1,000 X-ray images:
+
+| Class | Precision | Recall | F1-Score | Support |
+|---|---:|---:|---:|---:|
+| Normal | 0.80 | 0.31 | 0.45 | 500 |
+| Abnormal | 0.57 | 0.92 | 0.71 | 500 |
+
+**Accuracy: 0.62**
+
+**Macro F1-Score: 0.58**
+
+The recall-focused model achieved a recall of **0.92 for abnormal X-ray images**, demonstrating its ability to identify a high proportion of abnormal cases.
+
 ### Confusion Matrices
 
 - `confusion_matrix_finetune.png`
@@ -122,20 +152,7 @@ The repository contains selected evaluation results generated during model devel
 - `classification_report_finetune.txt`
 - `classification_report_recall_focus.txt`
 
-These files provide visual and numerical information about model performance, including classification behavior and training progress.
-
-### Model Performance Comparison
-
-The evaluation results show a clear trade-off between overall classification performance and abnormal-class recall.
-
-| Model | Accuracy | Abnormal Precision | Abnormal Recall | Abnormal F1-Score |
-|---|---:|---:|---:|---:|
-| Fine-Tuning | 0.74 | 0.79 | 0.66 | 0.72 |
-| Recall-Focused | 0.62 | 0.57 | 0.92 | 0.71 |
-
-The fine-tuned model achieved higher overall accuracy (74%), while the recall-focused model achieved substantially higher recall for abnormal X-ray images (92%).
-
-This demonstrates the effect of optimizing the model toward abnormality detection: the recall-focused strategy reduces overall accuracy but significantly improves the detection of abnormal cases.
+These files provide additional visual and numerical information about model performance, classification behavior, and training progress.
 
 ## Technologies
 
@@ -152,7 +169,8 @@ This demonstrates the effect of optimizing the model toward abnormality detectio
 Clone the repository:
 
 ```bash
-
+git clone https://github.com/hbaris23/bone-xray-abnormality-detection.git
+cd bone-xray-abnormality-detection
 ```
 
 Install the required dependencies:
@@ -165,7 +183,16 @@ pip install -r requirements.txt
 
 The project uses bone X-ray image data for binary abnormality classification.
 
-The dataset is not included in this repository due to size and data management considerations.
+The dataset used in this project was obtained from Harvard.
+
+The dataset contains X-ray images categorized into two classes:
+
+- Normal
+- Abnormal
+
+The dataset was used for model training and evaluation.
+
+The original dataset is not included in this repository due to dataset size and data management considerations.
 
 ## Repository Notes
 
