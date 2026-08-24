@@ -152,8 +152,7 @@ This demonstrates the effect of optimizing the model toward abnormality detectio
 Clone the repository:
 
 ```bash
-git clone https://github.com/hbaris23/bone-xray-abnormality-detection.git
-cd bone-xray-abnormality-detection
+
 ```
 
 Install the required dependencies:
