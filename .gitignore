@@ -46,3 +46,16 @@ outputs/reports/*.csv
 # ==============================
 .DS_Store
 Thumbs.db
+src/check_data.py
+src/check_setup.py
+src/copy_mura_samples.py
+src/evaluate_threshold.py
+src/gradcam.py
+src/gradcam_bbox.py
+src/gradcam_multiple.py
+src/predict_custom_folder.py
+src/predict_multiple.py
+src/show_samples.py
+src/train_baseline.py
+src/train_model.py
+src/src/
